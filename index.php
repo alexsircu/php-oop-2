@@ -1,82 +1,42 @@
-<?php
-class Product
-{
-
-  // ATTRIBUTI/PROPRIETA'
-  public $barcode;
-  public $price;
-
-  // COSTRUTTORE
-  public function __construct($barcode, $price)
-  {
-    $this->barcode = $barcode;
-    $this->price = $price;
-    
-  }
-
-  // METODI
-}
-
-class Meat extends Product
-{
-
-  // ATTRIBUTI/PROPRIETA'
-  public $type_of_meat;
-
-  // COSTRUTTORE
-  public function __construct($barcode, $price, $type_of_meat)
-  {
-    parent::__construct($barcode, $price);
-    $this->type_of_meat = $type_of_meat;
-  }
-
-  // METODI
-}
-
-class Fish extends Product
-{
-
-  // ATTRIBUTI/PROPRIETA'
-  public $type_of_fish;
-
-  // COSTRUTTORE
-  public function __construct($barcode, $price, $type_of_fish)
-  {
-    parent::__construct($barcode, $price);
-    $this->type_of_fish = $type_of_fish;
-  }
-
-  // METODI
-}
-
-class Accessories extends Product
-{
-
-  // ATTRIBUTI/PROPRIETA'
-  public $category;
-  public $brand;
-
-  // COSTRUTTORE
-  public function __construct($barcode, $price, $category, $brand)
-  {
-    parent::__construct($barcode, $price);
-    $this->$category = $category;
-    $this->brand = $brand;
-  }
-
-  // METODI
-}
-?>
-
-<h1>Salmone</h1>
-<?php
-  $salmon = new Fish("sruehr34302", 12, "Salmon");
-  var_dump($salmon);
-?>
-
-<h1>Pollo</h1>
 <?php 
-  $chicken = new Meat("fh3uuwh39734", 2, "Chicken");
-  var_dump($chicken); 
+
+require_once __DIR__ . "classes/meat.php";
+
+require_once __DIR__ . "classes/fish.php";
+
+require_once __DIR__ . "classes/accessories.php";
+
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <?php 
+    $chicken = new Meat("fh3uuwh39734", 2, "Chicken");
+    $salmon = new Fish("sruehr34302", 12, "Salmon");
+    $a1 = new Accessories("frf54tr4", 50, "coltelli", "random");
+  ?>
+
+  <section>
+    <h1>MEAT</h1>
+    <p>Queste sono le info della carne: <?php echo $chicken->getTypeOfMeat(); ?></p>
+  </section>
+
+  <section>
+    <h1>FISH</h1>
+    <p>Queste sono le info del pesce: <?php echo $salmon->getTypeOfFish(); ?></p>
+  </section>
+
+  <section>
+    <h1>ACCESSORIES</h1>
+    <p>Queste sono le info dell'utensile: <?php echo $a1->getCategory() . " " . $a1->getBrand(); ?></p>
+  </section>
+  
+</body>
+</html>
