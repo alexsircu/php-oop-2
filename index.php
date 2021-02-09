@@ -1,10 +1,10 @@
 <?php 
 
-require_once __DIR__ . "classes/meat.php";
+require_once __DIR__ . "/classes/meat.php";
 
-require_once __DIR__ . "classes/fish.php";
+require_once __DIR__ . "/classes/fish.php";
 
-require_once __DIR__ . "classes/accessories.php";
+require_once __DIR__ . "/classes/accessories.php";
 
 ?>
 

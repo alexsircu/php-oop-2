@@ -12,7 +12,7 @@ class Accessories extends Product
   public function __construct($barcode, $price, $category, $brand)
   {
     parent::__construct($barcode, $price);
-    $this->$category = $category;
+    $this->category = $category;
     $this->brand = $brand;
   }
 
